@@ -12,14 +12,14 @@ const refreshCaptcha = async () => {
         captchaImage.src = data.captcha_image;
         currentToken = data.token;
     } catch (error) {
-        console.error("CAPTCHA yenileme hatası:", error);
+        console.error("CAPTCHA renew error:", error);
     }
 };
 
 const submitCaptcha = async () => {
     const userInput = captchaInput.value;
     if (!userInput) {
-        resultMessage.textContent = "Lütfen CAPTCHA'yı girin.";
+        resultMessage.textContent = "Please enter the CAPTCHA.";
         resultMessage.style.color = "red";
         return;
     }
@@ -38,15 +38,15 @@ const submitCaptcha = async () => {
 
         const data = await response.json();
         if (data.success) {
-            resultMessage.textContent = "CAPTCHA doğrulandı!";
+            resultMessage.textContent = "CAPTCHA is verified!";
             resultMessage.style.color = "green";
         } else {
-            resultMessage.textContent = "CAPTCHA yanlış, tekrar deneyin.";
+            resultMessage.textContent = "CAPTCHA is wrong, try again.";
             resultMessage.style.color = "red";
         }
     } catch (error) {
-        console.error("CAPTCHA doğrulama hatası:", error);
-        resultMessage.textContent = "Bir hata oluştu, tekrar deneyin.";
+        console.error("CAPTCHA verifying error:", error);
+        resultMessage.textContent = "An error occured, try again.";
         resultMessage.style.color = "red";
     }
 };

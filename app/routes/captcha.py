@@ -28,10 +28,10 @@ class CaptchaVerificationRequest(BaseModel):
 @router.post("/verify-captcha")
 def verify_captcha(request: CaptchaVerificationRequest):
     if request.token not in captcha_store:
-        raise HTTPException(status_code=400, detail="Geçersiz token")
+        raise HTTPException(status_code=400, detail="Unvalid token")
 
     correct_answer = captcha_store.pop(request.token)
     if request.user_input.upper() == correct_answer:
-        return {"success": True, "message": "CAPTCHA doğru"}
+        return {"success": True, "message": "CAPTCHA valid"}
     else:
-        return {"success": False, "message": "CAPTCHA yanlış"}
+        return {"success": False, "message": "CAPTCHA unvalid"}
