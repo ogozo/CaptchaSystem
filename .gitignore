@@ -1,0 +1,8 @@
+
+/app/__pycache__
+/.venv/Scripts
+/.venv
+.idea/modules.xml
+.idea/CaptchaSystem.iml
+/.idea
+/app/routes/__pycache__
