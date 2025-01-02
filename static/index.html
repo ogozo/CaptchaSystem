@@ -9,11 +9,11 @@
 <body>
     <div class="container">
         <h1>CAPTCHA System</h1>
-        <div id="captcha-container">
+        <div id="captcha-container" style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px; width: 200px; height: 70px; padding-left: 50px; text-align: center;">
             <img id="captcha-image" src="" alt="CAPTCHA" />
             <button id="refresh-captcha">↻</button>
         </div>
-        <input type="text" id="captcha-input" placeholder="Enter the CAPTCHA">
+        <input type="text" id="captcha-input" placeholder="Enter the CAPTCHA" style="margin-bottom: 20px; width: 150px; height: 18px;">
         <button id="submit-captcha">Verify</button>
         <p id="result-message"></p>
     </div>

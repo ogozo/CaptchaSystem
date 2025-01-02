@@ -9,7 +9,7 @@ def generate_captcha():
 
     captcha_text = ''.join(random.choices(string.ascii_uppercase + string.digits, k=6))
 
-    font = ImageFont.load_default()
+    font = ImageFont.load_default(size=20)
     text_bbox = draw.textbbox((0, 0), captcha_text, font=font)
     text_width, text_height = text_bbox[2] - text_bbox[0], text_bbox[3] - text_bbox[1]
     text_position = ((width - text_width) // 2, (height - text_height) // 2)
